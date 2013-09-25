@@ -60,7 +60,7 @@ ZSH_THEME="sunrise"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
+DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
@@ -73,7 +73,7 @@ ZSH_THEME="sunrise"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras git-remote-branch debian dircycle gpg-agent lein per-directory-history pip redis-cli sprunge sublime supervisor svn tmux vagrant web-search pass)
+plugins=(gpg-agent git git-extras git-remote-branch debian dircycle lein per-directory-history pip redis-cli sprunge sublime supervisor svn tmux vagrant web-search pass)
 
 source $ZSH/oh-my-zsh.sh
 
