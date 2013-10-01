@@ -85,6 +85,7 @@ includes=(
     "$HOME/.private"
     "$HOME/.display"
     "$HOME/.dbus-reconnect"
+    "$HOME/.local/bin/virtualenvwrapper.sh"
 )
 
 ## Source all the includes
