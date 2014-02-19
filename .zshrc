@@ -2,8 +2,16 @@
 ################ Terminal setup ################
 ################################################
 
-## If we are on a real tty, start fbterm.
-[[ $(tty) == /dev/tty* ]] && exec fbterm
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+#ZSH_THEME="blinks"
+ZSH_THEME="agnoster"
+
+## If we are on a real tty, start fbterm
+[[ $(tty) == /dev/tty[1-5] ]] && exec fbterm
+
 
 case "$TERM" in
     ## Make the term colorful.
@@ -12,9 +20,14 @@ case "$TERM" in
 	;;
     ## If we got here, we are in fbterm.
     linux*)
-	export TERM=fbterm
-	exec screen -c ~/.clearscreenrc
-
+	case $(tty) in
+	    /dev/tty[1-5])
+		export TERM=fbterm
+		exec screen -c ~/.clearscreenrc
+		;;
+	    /dev/tty6)
+		ZSH_THEME="blinks"
+	esac
 	;;
     ## Currently, do nothing but later start a screen session.
     fbterm*)
@@ -31,14 +44,6 @@ stty start ''
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="blinks"
-ZSH_THEME="agnoster"
-
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
