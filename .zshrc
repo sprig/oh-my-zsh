@@ -78,7 +78,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(gpg-agent git git-extras git-remote-branch debian dircycle lein per-directory-history pip redis-cli sprunge sublime supervisor svn tmux vagrant web-search pass)
+plugins=(git git-extras git-remote-branch debian dircycle lein per-directory-history pip redis-cli sprunge sublime supervisor svn tmux vagrant pass virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
