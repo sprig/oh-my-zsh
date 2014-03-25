@@ -84,9 +84,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras git-remote-branch debian dircycle lein per-directory-history pip redis-cli sprunge sublime supervisor svn tmux vagrant pass virtualenvwrapper)
-
-source $ZSH/oh-my-zsh.sh
+plugins=(git git-extras git-remote-branch dircycle lein per-directory-history pip redis-cli sprunge sublime supervisor svn tmux vagrant pass virtualenvwrapper)
 
 # Customize to your needs...
 
@@ -103,3 +101,5 @@ includes=(
 for include in ${includes[*]}; do
     [ -f $include ] && . "$include"
 done
+
+source $ZSH/oh-my-zsh.sh
