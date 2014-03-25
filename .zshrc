@@ -10,7 +10,7 @@
 ZSH_THEME="agnoster"
 
 ## If we are on a real tty, start fbterm
-[[ $(tty) == /dev/tty[1-5] ]] && exec fbterm
+# [[ $(tty) == /dev/tty[2-5] ]] && which fbterm && exec fbterm
 
 
 case "$TERM" in
@@ -21,12 +21,16 @@ case "$TERM" in
     ## If we got here, we are in fbterm.
     linux*)
 	case $(tty) in
-	    /dev/tty[1-5])
+	    /dev/pts/[1-9]*)
 		export TERM=fbterm
 		exec screen -c ~/.clearscreenrc
 		;;
-	    /dev/tty6)
+	    /dev/tty[2-5])
+		which fbterm && exec fbterm || ZSH_THEME="blinks"
+		;;
+	    *)
 		ZSH_THEME="blinks"
+		;;
 	esac
 	;;
     ## Currently, do nothing but later start a screen session.
