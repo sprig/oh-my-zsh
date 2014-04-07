@@ -6,8 +6,9 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="blinks"
-ZSH_THEME="agnoster"
+ZSH_THEME="crcandy"
+#ZSH_THEME="agnoster"
+
 
 ## If we are on a real tty, start fbterm
 # [[ $(tty) == /dev/tty[2-5] ]] && which fbterm && exec fbterm
