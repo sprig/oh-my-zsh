@@ -89,6 +89,7 @@ DISABLE_CORRECTION="true"
 plugins=(git git-extras git-remote-branch dircycle lein per-directory-history pip redis-cli sprunge sublime supervisor svn tmux vagrant pass virtualenvwrapper)
 
 # Customize to your needs...
+export EDITOR="ec"
 
 includes=(
     "$HOME/.bash_aliases"
