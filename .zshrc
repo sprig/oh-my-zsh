@@ -50,11 +50,8 @@ stty start ''
 ###########################################
 ###########################################
 
-## Make sure the terminal language is set correctly!
-LANG=en_US.utf8
-
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
