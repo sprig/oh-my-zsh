@@ -14,6 +14,22 @@ ZSH_THEME="crcandy"
 ## If we are on a real tty, start fbterm
 # [[ $(tty) == /dev/tty[2-5] ]] && which fbterm && exec fbterm
 
+# # Disable customizations if the terminal is "dumb".
+# # It probably is a program typing automated commands (like Emacs's TRAMP mode).
+# if [ "$TERM" = "dumb" ]; then
+# 	unsetopt zle # Disable the Zsh Line Editor.
+
+# 	# Sh-like prompt.
+# 	if [ $EUID -ne 0 ]; then
+# 		PS1="$ "
+# 	else
+# 		PS1="# "
+# 	fi
+
+# 	emulate -R sh # Reset options and variables to emulate sh.
+
+# 	export DISABLE_CUSTOMIZATIONS=1
+# fi
 
 case "$TERM" in
     ## Make the term colorful.
