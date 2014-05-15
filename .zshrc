@@ -79,6 +79,9 @@ LC_NUMERIC="en_US.UTF-8"
 LC_TIME="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
 
+## Allow comment in interactive prompt.
+set -k
+
 ###########################################
 ###########################################
 
