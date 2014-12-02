@@ -21,16 +21,16 @@
 
 rack_root(){
   setopt chaselinks
-  local orgdir=$(pwd)
-  local basedir=$(pwd)
+  local orgdir="$PWD"
+  local basedir="$PWD"
 
   while [[ $basedir != '/' ]]; do
     test -e "$basedir/config.ru" && break
     builtin cd ".." 2>/dev/null
-    basedir="$(pwd)"
+    basedir="$PWD"
   done
 
-  builtin cd $orgdir 2>/dev/null
+  builtin cd "$orgdir" 2>/dev/null
   [[ ${basedir} == "/" ]] && return 1
   echo $basedir
 }
@@ -56,19 +56,19 @@ kapow(){
 compctl -W ~/.pow -/ kapow
 
 powit(){
-  local basedir=$(pwd)
+  local basedir="$PWD"
   local vhost=$1
   [ ! -n "$vhost" ] && vhost=$(rack_root_detect)
   if [ ! -h ~/.pow/$vhost ]
   then
     echo "pow: Symlinking your app with pow. ${vhost}"
-    [ ! -d ~/.pow/${vhost} ] && ln -s $basedir ~/.pow/$vhost
+    [ ! -d ~/.pow/${vhost} ] && ln -s "$basedir" ~/.pow/$vhost
     return 1
   fi
 }
 
 powed(){
-  local basedir=$(rack_root)
+  local basedir="$(rack_root)"
   find ~/.pow/ -type l -lname "*$basedir*" -exec basename {}'.dev' \;
 }
 
