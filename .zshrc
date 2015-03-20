@@ -124,7 +124,7 @@ DISABLE_CORRECTION="true"
 plugins=(git git-extras git-remote-branch dircycle lein per-directory-history pip redis-cli sprunge supervisor svn vagrant pass virtualenvwrapper safe-paste)
 
 # Customize to your needs...
-export EDITOR="en"
+export EDITOR="ec"
 
 includes=(
     "$HOME/.bash_aliases"
