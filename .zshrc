@@ -140,8 +140,8 @@ for include in ${includes[*]}; do
     [ -f $include ] && . "$include"
 done
 
-if which mr 1 > /dev/null; then
-    mr -m s
-fi
-
 source $ZSH/oh-my-zsh.sh
+
+if which mr 1 > /dev/null; then
+  echo "$(chdir $HOME; mr -m s)"
+fi
