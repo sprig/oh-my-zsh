@@ -124,7 +124,7 @@ DISABLE_CORRECTION="true"
 plugins=(git git-extras git-remote-branch dircycle lein per-directory-history pip redis-cli sprunge supervisor svn vagrant pass virtualenvwrapper safe-paste)
 
 # Customize to your needs...
-export EDITOR="ec"
+export EDITOR="vim"
 
 includes=(
     "$HOME/.bash_aliases"
@@ -133,6 +133,7 @@ includes=(
     "$HOME/.display"
     "$HOME/.dbus-reconnect"
     "$HOME/.local/bin/virtualenvwrapper.sh"
+    "$HOME/.system-cust"
 )
 
 ## Source all the includes
