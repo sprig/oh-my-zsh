@@ -124,7 +124,7 @@ DISABLE_CORRECTION="true"
 plugins=(ruby git git-extras git-remote-branch dircycle lein per-directory-history pip redis-cli sprunge supervisor svn vagrant pass virtualenvwrapper safe-paste)
 
 # Customize to your needs...
-export EDITOR="ec"
+export EDITOR="vim"
 
 includes=(
     "$HOME/.bash_aliases"
@@ -134,6 +134,7 @@ includes=(
     "$HOME/.dbus-reconnect"
     "$HOME/.local/bin/virtualenvwrapper.sh"
     "$HOME/.rvm/scripts/rvm"
+    "$HOME/.system-cust"
 )
 
 ## Source all the includes
@@ -142,3 +143,7 @@ for include in ${includes[*]}; do
 done
 
 source $ZSH/oh-my-zsh.sh
+
+if which mr 1 > /dev/null; then
+  echo "$(chdir $HOME; mr -m s)"
+fi
