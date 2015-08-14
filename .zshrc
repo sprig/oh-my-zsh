@@ -121,13 +121,13 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ruby git git-extras git-remote-branch dircycle lein per-directory-history pip redis-cli sprunge supervisor svn vagrant pass virtualenvwrapper safe-paste)
+plugins=(ruby git git-extras git-remote-branch dircycle lein per-directory-history pip redis-cli sprunge supervisor svn vagrant pass virtualenvwrapper safe-paste zsh-syntax-highlighting)
 
 # Customize to your needs...
 export EDITOR="vim"
 
 includes=(
-    "$HOME/.bash_aliases"
+    "$HOME/.aliases"
     "$HOME/.path"
     "$HOME/.private"
     "$HOME/.display"
