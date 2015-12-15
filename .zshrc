@@ -144,6 +144,10 @@ done
 
 source $ZSH/oh-my-zsh.sh
 
-if which mr 1 > /dev/null; then
-  echo "$(chdir $HOME; mr -m s)"
+if which mr 1> /dev/null; then
+  if MROUT="$(chdir $HOME; mr -m s 2>/dev/null)"; then
+      echo $MROUT;
+  else
+      echo "$(chdir $HOME; mr s)";
+  fi
 fi
