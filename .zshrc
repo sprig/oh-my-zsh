@@ -36,14 +36,14 @@ case "$TERM" in
     xterm*)
 	export TERM="xterm-256color"
 	;;
-    ## If we got here, we are in fbterm.
+    ## If we got here, we are in fbterm or similar.
     linux*)
 	case $(tty) in
 	    /dev/pts/[1-9]*)
 		export TERM=fbterm
 		exec screen -c ~/.clearscreenrc
 		;;
-	    /dev/tty[2-5])
+	    /dev/tty[3-5])
 		which fbterm && exec fbterm || ZSH_THEME="blinks"
 		;;
 	    *)
