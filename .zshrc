@@ -127,6 +127,7 @@ plugins=(ruby git git-extras git-remote-branch dircycle lein per-directory-histo
 export EDITOR="vim"
 
 includes=(
+    "$HOME/.profile"
     "$HOME/.aliases"
     "$HOME/.path"
     "$HOME/.private"
