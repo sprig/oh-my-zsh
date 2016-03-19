@@ -135,6 +135,7 @@ includes=(
     "$HOME/.local/bin/virtualenvwrapper.sh"
     "$HOME/.rvm/scripts/rvm"
     "$HOME/.system-cust"
+    "$HOME/.iterm2_shell_integration.$(basename $SHELL)"
 )
 
 ## Source all the includes
