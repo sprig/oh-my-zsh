@@ -128,20 +128,17 @@ export EDITOR="vim"
 
 includes=(
     "$HOME/.profile"
-    "$HOME/.aliases"
-    "$HOME/.path"
     "$HOME/.private"
     "$HOME/.display"
     "$HOME/.dbus-reconnect"
     "$HOME/.local/bin/virtualenvwrapper.sh"
     "$HOME/.rvm/scripts/rvm"
-    "$HOME/.system-cust"
     "$HOME/.iterm2_shell_integration.$(basename $SHELL)"
 )
 
 ## Source all the includes
 for include in ${includes[*]}; do
-    [ -f $include ] && . "$include"
+    source "$include"
 done
 
 source $ZSH/oh-my-zsh.sh
