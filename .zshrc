@@ -141,7 +141,7 @@ for include in ${includes[*]}; do
     source "$include"
 done
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 if which mr 1> /dev/null; then
   if MROUT="$(chdir $HOME; mr -m s 2>/dev/null)"; then
