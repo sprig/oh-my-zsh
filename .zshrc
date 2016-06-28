@@ -1,4 +1,7 @@
 # -*- mode: sh -*-
+
+. "$HOME/.profile"
+
 ################################################
 ################ Terminal setup ################
 ################################################
@@ -68,17 +71,6 @@ esac
 stty stop ''
 stty start ''
 
-## Language
-
-LANG="en_US.UTF-8"
-LC_COLLATE="en_US.UTF-8"
-LC_CTYPE="en_US.UTF-8"
-LC_MESSAGES="en_US.UTF-8"
-LC_MONETARY="en_US.UTF-8"
-LC_NUMERIC="en_US.UTF-8"
-LC_TIME="en_US.UTF-8"
-LC_ALL="en_US.UTF-8"
-
 ## Allow comment in interactive prompt.
 set -k
 
@@ -127,7 +119,6 @@ plugins=(ruby git git-extras git-remote-branch dircycle lein per-directory-histo
 export EDITOR="vim"
 
 includes=(
-    "$HOME/.profile"
     "$HOME/.private"
     "$HOME/.display"
     "$HOME/.dbus-reconnect"
@@ -138,10 +129,10 @@ includes=(
 
 ## Source all the includes
 for include in ${includes[*]}; do
-    source "$include"
+    src "$include"
 done
 
-source "$ZSH/oh-my-zsh.sh"
+src "$ZSH/oh-my-zsh.sh"
 
 if which mr 1> /dev/null; then
   if MROUT="$(chdir $HOME; mr -m s 2>/dev/null)"; then
