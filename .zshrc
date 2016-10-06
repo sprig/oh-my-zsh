@@ -1,5 +1,27 @@
 # -*- mode: sh -*-
 
+# based on http://stackoverflow.com/questions/4351244
+#
+#ZSH_ENABLE_PROFILE=1
+
+if [[ -n $ZSH_ENABLE_PROFILE ]]; then
+  # set the trace prompt to include seconds, nanoseconds, script name and line
+  # number
+  if [[ -n `which gdate` ]]; then
+    # GNU date is required for nanosecond precision (%N). OS X doesn't
+    # ship with that by default, so use gdate from coreutils in homebrew.
+    PS4='+$(gdate +"%s.%N") %N:%i> '
+  else
+    PS4='+$(date +"%s.%N") %N:%i> '
+  fi
+  # save file stderr to file descriptor 3 and redirect stderr (including trace
+  # output) to a file with the script's PID as an extension
+  exec 3>&2 2>/tmp/startlog.$$
+  # set options to turn on tracing and expansion of commands contained in the
+  # prompt
+  setopt xtrace prompt_subst
+fi
+
 . "$HOME/.profile"
 
 ################################################
@@ -113,7 +135,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ruby git git-extras git-remote-branch dircycle lein per-directory-history pip redis-cli sprunge supervisor svn vagrant pass virtualenvwrapper safe-paste)
+plugins=(git git-extras git-remote-branch dircycle per-directory-history pip pass virtualenvwrapper safe-paste)
 
 # Customize to your needs...
 export EDITOR="vim"
@@ -122,8 +144,6 @@ includes=(
     "$HOME/.private"
     "$HOME/.display"
     "$HOME/.dbus-reconnect"
-    "$HOME/.local/bin/virtualenvwrapper.sh"
-    "$HOME/.rvm/scripts/rvm"
     "$HOME/.iterm2_shell_integration.$(basename $SHELL)"
 )
 
@@ -140,4 +160,14 @@ if which mr 1> /dev/null; then
   else
       echo "$(chdir $HOME; mr s)";
   fi
+fi
+
+## 0. End startup profiling
+#
+
+if [[ -n $ZSH_ENABLE_PROFILE ]]; then
+  # turn off tracing
+  unsetopt xtrace
+  # restore stderr to the value saved in FD 3
+  exec 2>&3 3>&-
 fi
