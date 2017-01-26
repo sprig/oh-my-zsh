@@ -154,12 +154,17 @@ done
 
 src "$ZSH/oh-my-zsh.sh"
 
-if which mr 1> /dev/null; then
-  if MROUT="$(chdir $HOME; mr -m s 2>/dev/null)"; then
-      echo $MROUT;
-  else
-      echo "$(chdir $HOME; mr s)";
-  fi
+## Display status of git repos
+mr -m s -s
+
+printf "\n%40s\n\n" |tr " " "="
+
+# Print a random, hopefully interesting, adage.
+if (( $+commands[fortune] )); then
+    if [[ -t 0 || -t 1 ]]; then
+        fortune -s
+        print
+    fi
 fi
 
 ## 0. End startup profiling
