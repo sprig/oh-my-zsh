@@ -179,3 +179,9 @@ if [[ -n $ZSH_ENABLE_PROFILE ]]; then
   # restore stderr to the value saved in FD 3
   exec 2>&3 3>&-
 fi
+
+if [[ -d "${HOME}/.includes/" ]]; then
+    for f in "${HOME}/.includes/"*; do
+        src "$f"
+    done
+fi
