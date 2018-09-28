@@ -157,10 +157,15 @@ done
 
 src "$ZSH/oh-my-zsh.sh"
 
+if [[ -d "${HOME}/.includes/" ]]; then
+    for f in "${HOME}/.includes/"*; do
+        src "$f"
+    done
+fi
+
 ## Display status of git repos
 mr -m s -s
 
-printf "\n%40s\n\n" |tr " " "="
 
 # Print a random, hopefully interesting, adage.
 if (( $+commands[fortune] )); then
@@ -178,10 +183,4 @@ if [[ -n $ZSH_ENABLE_PROFILE ]]; then
   unsetopt xtrace
   # restore stderr to the value saved in FD 3
   exec 2>&3 3>&-
-fi
-
-if [[ -d "${HOME}/.includes/" ]]; then
-    for f in "${HOME}/.includes/"*; do
-        src "$f"
-    done
 fi
